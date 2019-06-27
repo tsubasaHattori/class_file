@@ -1,0 +1,31 @@
+html {
+    width: 1024px;
+}
+
+#header {
+
+}
+
+#footer {
+    color: blue;
+}
+
+body {
+    width: 980px;
+    margin: 0 22px;
+}
+
+.title-logo {
+    font-size: 70px;
+    margin: 0 0;
+}
+
+.title-logo, nav {
+    color: black;
+    font-family: "HGP行書体", cursive;
+}
+
+ul {
+    list-style: none;
+}
+
