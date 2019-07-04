@@ -4,20 +4,34 @@
   <head>
     <meta charset="utf-8">
     <title>タイムスケジュール|和とりっぷ</title>
-    <link rel="stylesheet" href="common/css/plan.css">
+    <link rel="stylesheet" href="common/css/header.css">
+    <link rel="stylesheet" href="common/css/body.css">
+    <link rel="stylesheet" href="common/css/footer.css">
     <link rel="shortcut icon" href="common/img/wa.ico">
-    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script>
-     $(function() {
-       $("#header").load("header.html");
-       $("#footer").load("footer.html");
-     });
-    </script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" 
+	  rel="stylesheet">
   </head>
   <body>
-    <div id="header"></div>
+    <div id="header">
+      <div class="top-title">
+        <p class="title-logo">和とりっぷ</p>
+        <p class="sub-title"> 〜桜咲く<img class="cherry" src="common/img/cherry.png"> 京都 奈良の旅〜</p>
+      </div>
+      <nav class="globalNavi">
+        <ul>
+          <li><a href="index.html"> 目的・概要</a></li>
+          <li><a href="schedule.html"> 日程</a></li>
+          <li><a href="accomodation.html"> 宿泊施設</a></li>
+          <li class="current"><a href="route.html"> タイムスケジュール</a></li>
+          <li><a href="cost.html"> 費用</a></li>
+        </ul>
+      </nav>
+    </div>
     <div id="main">
-
+      <div class="route">
+	<h1 class="headline"><i class="fas fa-angle-right"></i> タイムスケジュール</h1>
+	<p>taimu</p>
+      </div>
     </div>
     <div id="footer"></div>
   </body>

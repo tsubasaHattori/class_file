@@ -1,0 +1,90 @@
+html {
+    width: 1024px;
+}
+
+#header {
+    margin-bottom: 30px;
+}
+
+
+body {
+    width: 980px;
+    margin: 0 22px;
+}
+
+.top-title {
+    height: 110px;
+    background-color: #F5FFFA;
+}
+
+.title-logo {
+    font-size: 70px;
+    margin: 0 0;
+    height: 90px;
+    float: left;
+}
+
+.sub-title {
+    margin: 0 0 10px 365px;
+    font-size: 18px;
+    padding: 60px 0 0 0;
+}
+
+.title-logo, .top-title, nav {
+    color: black;
+    font-family: "Yu Mincho";
+}
+
+.cherry {
+    margin-bottom: -10px;
+}
+
+nav ul li a {
+   
+}
+
+.globalNavi {
+    border: solid #cccccc;
+    border-width: 1px 0;
+    padding: 10px 0;
+}
+
+.globalNavi ul:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.globalNavi ul li {
+    list-style: none;
+    width: 196px;
+    float: left;
+    border-left: solid 1px #cccccc;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.429;
+}
+
+.globalNavi ul li:first-child {
+    border-left: none;
+}
+
+.globalNavi ul {
+    margin: 0;
+    padding: 0;
+}
+
+.globalNavi ul li a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+
+.globalNavi ul li a:hover,
+.globalNavi ul li.current a {
+    background-color: #F2F2E5;
+}
+
