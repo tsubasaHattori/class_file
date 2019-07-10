@@ -14,7 +14,7 @@ body {
 
 .top-title {
     height: 110px;
-    background-color: #F5FFFA;
+    /* background-color: #F5FFFA; */
 }
 
 .title-logo {
@@ -85,6 +85,6 @@ nav ul li a {
 
 .globalNavi ul li a:hover,
 .globalNavi ul li.current a {
-    background-color: #F2F2E5;
+    background-color: #E6E6FA;
 }
 
