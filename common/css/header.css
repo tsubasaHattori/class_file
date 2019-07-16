@@ -1,15 +1,10 @@
 html {
-    width: 1024px;
+    /* width: 1024px; */
 }
 
 #header {
     margin-bottom: 30px;
-}
-
-
-body {
-    width: 980px;
-    margin: 0 22px;
+    background-color: white;
 }
 
 .top-title {
@@ -19,7 +14,6 @@ body {
 
 .title-logo {
     font-size: 70px;
-    margin: 0 0;
     height: 90px;
     float: left;
 }
