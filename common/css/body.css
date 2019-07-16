@@ -23,6 +23,14 @@ body {
     margin-left: 60px;
 }
 
+.second-content {
+    margin-left: 40px;
+}
+
 .fa-square  {
     margin-right: 10px;
+}
+
+.topicPath {
+    margin-top: 10px;
 }
