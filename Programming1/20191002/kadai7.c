@@ -2,7 +2,14 @@
 
 int main(void)
 {
-    printf("ようこそC言語へ!\n");
+    int x = 10 , y = 8;
+
+    printf("%d / %d = %f\n", x, y, (double)x/y);
+
+    x = 7; y = 4;
+
+    printf("%d / %d = %f\n", x, y, (double)x/y);
+
 
     return 0;
 }

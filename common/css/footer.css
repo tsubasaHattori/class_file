@@ -20,7 +20,8 @@
     }
 
     body {
-        width: 100%;
+        width: 95%;
+        margin: 0 10px;
     }
 
     .title-logo {
@@ -70,6 +71,10 @@
 
     .second-content {
         margin: 0;
+    }
+
+    iframe {
+        width: 100%;
     }
 
 }

@@ -43,3 +43,7 @@ body {
 .temple-img {
     width: 900px;
 }
+
+iframe {
+    margin-top: 30px;
+}
