@@ -33,7 +33,7 @@ int main(void)
     //     printf("%d", (x >> i) & mask);
     // }
     
-    printf(" です.\n");
+    printf("です.\n");
 
     return 0;
 }
