@@ -1,0 +1,80 @@
+
+
+#footer {
+    border-top: solid 1px gray;
+    margin: 30px 0 30px 0;
+
+}
+
+.footer-logo {
+    color: black;
+    font-family: "Yu Mincho";
+    text-align: center;
+    font-size: 25px;
+}
+
+@media screen and (max-width: 700px) {
+
+    html {
+        width: 100%;
+    }
+
+    body {
+        width: 95%;
+        margin: 0 10px;
+    }
+
+    .title-logo {
+        font-size: 50px;
+        height: 40px;
+        width: 300px;
+        text-align: center;
+        margin: auto;
+        float: none;
+    }
+    
+    .sub-title {
+        font-size: 12px;
+        text-align: center;
+        padding: 20px 0 0 0;
+        margin: auto;
+    }
+
+    .temple-img {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+
+    ul {
+        width: 200px;
+    }
+
+    .globalNavi ul li {
+        border-left: none;
+        margin-top: 4px;
+        float: none;
+    }
+
+    .globalNavi ul {
+        text-align: center;
+        margin: auto;
+    }
+     
+    .text-content{
+        margin-right: 30px;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .second-content {
+        margin: 0;
+    }
+
+    iframe {
+        width: 100%;
+    }
+
+}
