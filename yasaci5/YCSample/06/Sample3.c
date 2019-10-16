@@ -5,7 +5,7 @@ int main(void)
    int num;
    int i;
 
-   printf("‚¢‚­‚Â*‚ğo—Í‚µ‚Ü‚·‚©H\n");
+   printf("ã„ãã¤*ã‚’å‡ºåŠ›ã—ã¾ã™ã‹ï¼Ÿ\n");
    scanf("%d", &num);
 
    for(i=1; i<=num; i++){

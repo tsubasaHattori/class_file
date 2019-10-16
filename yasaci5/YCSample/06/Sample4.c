@@ -8,14 +8,14 @@ int main(void)
    num = 0;
    sum = 0;
 
-   printf("‚¢‚­‚Â‚Ü‚Å‚Ì‡Œv‚ğ‹‚ß‚Ü‚·‚©H\n");
+   printf("ã„ãã¤ã¾ã§ã®åˆè¨ˆã‚’æ±‚ã‚ã¾ã™ã‹ï¼Ÿ\n");
    scanf("%d", &num);
 
    for(i=1; i<=num; i++){
       sum += i; 
    }
 
-   printf("1‚©‚ç%d‚Ü‚Å‚Ì‡Œv’l‚Í%d‚Å‚·B\n", num, sum);
+   printf("1ã‹ã‚‰%dã¾ã§ã®åˆè¨ˆå€¤ã¯%dã§ã™ã€‚\n", num, sum);
 
    return 0;
 }

@@ -5,12 +5,12 @@ int main(void)
    int res;
    int i;
 
-   printf("‰½”Ô–Ú‚Åƒ‹[ƒv‚ğ’†~‚µ‚Ü‚·‚©Hi1`10j\n");
+   printf("ä½•ç•ªç›®ã§ãƒ«ãƒ¼ãƒ—ã‚’ä¸­æ­¢ã—ã¾ã™ã‹ï¼Ÿï¼ˆ1ï½10ï¼‰\n");
 
    scanf("%d", &res);
 
    for(i=1; i<=10; i++){
-      printf("%d”Ô–Ú‚Ìˆ—‚Å‚·B\n", i);
+      printf("%dç•ªç›®ã®å‡¦ç†ã§ã™ã€‚\n", i);
       if(i == res)
          break;
    }

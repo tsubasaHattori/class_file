@@ -6,7 +6,7 @@ int main(void)
 
    for(i=0; i<5; i++){
       for(j=0; j<3; j++){
-         printf("i‚Í%d:j‚Í%d\n", i, j);
+         printf("iã¯%d:jã¯%d\n", i, j);
       }
    }
 
