@@ -5,6 +5,14 @@
 
 #define MS_SIZE 8
 
+// mine_mapの状態
+#define MINE -1
+
+// game_boardの状態
+#define CLOSE 0
+#define OPEN 1
+#define FLAG 2
+
 int main(void)
 {
     // int mode;
@@ -18,29 +26,29 @@ int main(void)
     
     // 課題１　地雷をランダムにセット
     while (i <= number_of_mines) {
-        if (mine_map[rand() % MS_SIZE][rand() % MS_SIZE] == -1) {
+        if (mine_map[rand() % MS_SIZE][rand() % MS_SIZE] == MINE) {
             i--;
         } else {
-            mine_map[rand() % MS_SIZE][rand() % MS_SIZE] = -1;
+            mine_map[rand() % MS_SIZE][rand() % MS_SIZE] = MINE;
         }
         i++;
     }
 
     // 課題２　各セルの８近傍の地雷をカウント
-    for (p=0; p<MS_SIZE; p++) {
-        for (q=0; q<MS_SIZE; q++) {
-            if (mine_map[p][q] == -1) {
-                for (r=0; r<3; r++) {
-                    for(s=0; s<3; s++) {
-                        if (p-1+r >= 0 && p-1+r < MS_SIZE && q-1+s >= 0 && q-1+s < MS_SIZE) {
-                            mine_map[p-1+r][q-1+s] = mine_map[p-1+r][q-1+s] >= 0 ? mine_map[p-1+r][q-1+s] + 1 : mine_map[p-1+r][q-1+s];
-                        }
-                    }
-                }
-                mine_map[p][q] = -1;
-            }
-        }
-    }
+    // for (p=0; p<MS_SIZE; p++) {
+    //     for (q=0; q<MS_SIZE; q++) {
+    //         if (mine_map[p][q] == MINE) {
+    //             for (r=0; r<3; r++) {
+    //                 for(s=0; s<3; s++) {
+    //                     if (p-1+r >= 0 && p-1+r < MS_SIZE && q-1+s >= 0 && q-1+s < MS_SIZE) {
+    //                         mine_map[p-1+r][q-1+s] = mine_map[p-1+r][q-1+s] >= 0 ? mine_map[p-1+r][q-1+s] + 1 : mine_map[p-1+r][q-1+s];
+    //                     }
+    //                 }
+    //             }
+    //             mine_map[p][q] = MINE;
+    //         }
+    //     }
+    // }
 
     for (p=0; p<MS_SIZE; p++) {
         for (q=0; q<MS_SIZE; q++) {
