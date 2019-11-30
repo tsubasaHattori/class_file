@@ -5,12 +5,14 @@
 
 #define N 3
 
-void get_coefficients(int argc, char *argv, double *alpha, double *a) {
+void get_coefficients(int argc, char *argv[], double *alpha, double *a) {
     int i, j;
-    char cmp[4][3] = {"-a0", "-a1", "-a2", "-a3"};
+    char cmp[4][4] = {"-a0\0", "-a1\0", "-a2\0", "-a3\0"};
 
+    // printf("%s\n", argv[1]);
     if (argc != (N+1)*2 + 3) {
         printf("引数が足りません。\n");
+        exit(0);
     } else {
         for (i=1; i<argc; i++) {
             for(j=0; j<4; j++) {
@@ -33,13 +35,13 @@ double function(double alpha, double a[]) {
     return result;
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
     int i;
     double alpha = 0;
     double a[N+1] = {0,};
 
-    get_coefficients(argc, *argv, &alpha, a);
+    get_coefficients(argc, argv, &alpha, a);
 
     printf("係数：\n");
     for (i=0; i<N+1; i++) {
@@ -47,7 +49,7 @@ int main(int argc, char *argv[])
     }
     printf("alpha = %f\n", alpha);
 
-    printf("f(alpha) = %f\n", a[0]*alpha*alpha*alpha + a[1]*alpha*alpha * a[2]*alpha + a[3]);
+    printf("f(alpha) = %f\n", a[0]*alpha*alpha*alpha + a[1]*alpha*alpha + a[2]*alpha + a[3]);
 
     printf("f(alpha) = %f\n", function(alpha, a));
 
