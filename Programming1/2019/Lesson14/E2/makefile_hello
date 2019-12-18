@@ -1,0 +1,6 @@
+hello_main : hello_main.o print_hello.o
+	gcc -o hello_main hello_main.o print_hello.o
+print_hello.o : print_hello.c
+	gcc -c print_hello.c
+hello_main.o : hello_main.c print_hello.h
+	gcc -c hello_main.c

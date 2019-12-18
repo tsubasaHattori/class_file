@@ -1,0 +1,11 @@
+EXE = hello_main 
+SRCS = hello_main.c print_hello.c
+OBJS = $(SRCS:.c=.o)
+CC = gcc
+.SUFFIXES: .c .o
+
+$(EXE) : $(OBJS)
+	$(CC) -o $@ $^
+%.o : %.c
+	$(CC) -c $<
+hello_main.o : print_hello.h

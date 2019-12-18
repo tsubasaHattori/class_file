@@ -1,0 +1,7 @@
+EXE = hello_main 
+SRCS = hello_main.c print_hello.c
+OBJS = hello_main.o print_hello.o
+CC = gcc
+
+$(EXE) : $(OBJS)
+	$(CC) -o $@ $^

@@ -1,0 +1,8 @@
+hello_main : hello_main.o hello.o goodbye.o
+	gcc -o hello_main hello_main.o hello.o goodbye.o
+hello.o : hello.c
+	gcc -c hello.c
+goodbye.o : goodbye.c
+	gcc -c goodbye.c
+hello_main.o : hello_main.c hello.h goodbye.h
+	gcc -c hello_main.c
