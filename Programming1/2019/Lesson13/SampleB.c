@@ -10,11 +10,8 @@ int main(void)
     printf("x　　　のアドレスは　%p\n", &x);
     printf("aの先頭のアドレスは　%p\n", a);
     printf("aを入力してください。");
-
     scanf("%s", a);
 
-    printf("x　　　のアドレスは　%p\n", &x);
-    printf("aの先頭のアドレスは　%p\n", a);
     printf("xの値は, %d\n", x);
 
     return 0;
