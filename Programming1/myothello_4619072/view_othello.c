@@ -74,7 +74,7 @@ void view_loop( struct view *v, struct othello *o ){
 	init_othello( o );
 	step = 0;
 	view_draw( v, o );
-	while ( !0 ) {
+	while ( o->n ) {
 		usleep( 10 * 100 );
 		myothello( &step, o );
 		step++;

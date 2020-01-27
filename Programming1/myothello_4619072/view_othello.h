@@ -13,6 +13,9 @@
 #define EMPTY (-1)
 #define WHITE (0)
 #define BLACK (1)
+#define CANPUT (2)
+
+#define SIZE_OF_ARRAY(array)    (sizeof(array)/sizeof(array[0]))
 
 struct othello{
 	int n;
@@ -48,4 +51,8 @@ void view_init( struct view *v );
 void view_out( struct view *v );
 void view_draw( struct view *v, void *a );
 void view_loop( struct view *v, struct othello *o );
+
+void can_put(int board_size, int can_put_board[][board_size], int color, struct othello *o);
+void reverse(int x, int y, int color, struct othello *o);
+
 #endif
