@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <unistd.h> 
+#include <time.h>
+
 #include "view_othello.h" // 描画関係のヘッダー
 
 /*
@@ -41,7 +43,7 @@ void myothello(int *step,        /* 現在のステップ数(初期値は0) */
 	int board_size = o->n;
 	int can_put_board[board_size][board_size];
 	int empty_board[board_size][board_size];
-	int max_result[3] = {0, 0, 0}; //{最大反転数, ｘ,ｙ}}
+	int max_result = 0;
 	int i, j;
 	char *winner;
 
@@ -64,7 +66,7 @@ void myothello(int *step,        /* 現在のステップ数(初期値は0) */
 	}
 
 	// 課題5　石を置ける場所がない場合にパスする
-	can_put(board_size, can_put_board, max_result, color, o);
+	can_put(board_size, can_put_board, &max_result, color, o);
 
 	// 課題4　ゲーム終了　
 	if (o->pass_flag[color] && o->pass_flag[abs(color-1)]) {
@@ -88,8 +90,8 @@ void myothello(int *step,        /* 現在のステップ数(初期値は0) */
 	}
 
 	// 課題8　勝手に石を置いていく関数
-	if ((o->algo == 1 && *step % 2 == BLACK) || o->algo == 2) {
-		algo_4619072(&x, &y, max_result);
+	if ((o->algo == 1 && color == BLACK) || o->algo == 2) {
+		algo_4619072(&x, &y, color, board_size, can_put_board, o);
 	} else {
 		printf( "Input cell (x y)\n" );
 		scanf( "%d %d", &x, &y );
@@ -127,6 +129,8 @@ int main (int argc, char **argv){
 	// 課題７　盤面のサイズを実行時オプションで与える。
 	int board_size = 8;
 	int algo = 0;
+
+    srand((unsigned)time(NULL));
 
 	for (i=1; i<argc; i++) {
         if (strcmp(argv[i], "-n") == 0 && i+1 < argc) {
@@ -257,102 +261,118 @@ void reverse(int x, int y, int color, struct othello *o) {
 }
 
 // 課題5　石を置ける場所がない場合にパスする
-void can_put(int board_size, int can_put_board[][board_size], int max_result[], int color, struct othello *o) {
+void can_put(int board_size, int can_put_board[][board_size], int *max_result, int color, struct othello *o) {
 	int i, x, y;
 
 	for (x=0; x<board_size; x++) {
 		for (y=0; y<board_size; y++) {
-
 			if (o->board[x][y] != EMPTY){ continue; }
 			//　x方向
 			for (i=1; x-i-1 >= 0 && o->board[x-i][y] == abs(color-1); i++) {
 				if (o->board[x-i-1][y] == color) {
 					can_put_board[x][y] += i;
 					o->pass_flag[color] = 0;
-					// break;
 				}
 			}
-			// if (can_put_board[x][y] =+= i){ break; }
 			for (i=1; x+i+1 < board_size && o->board[x+i][y] == abs(color-1); i++) {
-					// printf("--%2d-- ", abs(color-1));
-				
 				if (o->board[x+i+1][y] == color) {
 					can_put_board[x][y] += i;
 					o->pass_flag[color] = 0;
-					// break;
 				}
 			}
-			// if (can_put_board[x][y] =+= i){ break; }
 
 			//　y方向
-					// printf("%2d ", can_put_board[x][y]);
 			for (i=1; y-i-1 >= 0 && o->board[x][y-i] == abs(color-1); i++) {
-					// return;
-					// printf("%2d ", -9);
-
 				if (o->board[x][y-i-1] == color) {
 					can_put_board[x][y] += i;
 					o->pass_flag[color] = 0;
-					// break;
 				}
 			}
-			// if (can_put_board[x][y] =+= i){ break; }
 			for (i=1; y+i+1 < board_size && o->board[x][y+i] == abs(color-1); i++) {
 				if (o->board[x][y+i+1] == color) {
 					can_put_board[x][y] += i;
 					o->pass_flag[color] = 0;
-					// break;
 				}
 			}
-			// if (can_put_board[x][y] =+= i){ break; }
 
 			//　y=x方向
 			for (i=1; x-i-1 >=0 && y-i-1 >= 0 && o->board[x-i][y-i] == abs(color-1); i++) {
 				if (o->board[x-i-1][y-i-1] == color) {
 					can_put_board[x][y] += i;
 					o->pass_flag[color] = 0;
-					// break;
 				}
 			}
-			// if (can_put_board[x][y] =+= i){ break; }
 			for (i=1; x+i+1 < board_size && y+i+1 < board_size && o->board[x+i][y+i] == abs(color-1); i++) {
 				if (o->board[x+i+1][y+i+1] == color) {
 					can_put_board[x][y] += i;
 					o->pass_flag[color] = 0;
-					// break;
 				}
 			}
-			// if (can_put_board[x][y] =+= i){ break; }
 
 			//　y=-x方向
 			for (i=1; x-i-1 >=0 && y+i+1 < board_size && o->board[x-i][y+i] == abs(color-1); i++) {
 				if (o->board[x-i-1][y+i+1] == color) {
 					can_put_board[x][y] += i;
 					o->pass_flag[color] = 0;
-					// break;
 				}
 			}
-			// if (can_put_board[x][y] =+= i){ break; }
 			for (i=1; x+i+1 < board_size && y-i-1 >= 0 && o->board[x+i][y-i] == abs(color-1); i++) {
 				if (o->board[x+i+1][y-i-1] == color) {
 					can_put_board[x][y] += i;
 					o->pass_flag[color] = 0;
-					// break;
 				}
 			}
-			if (can_put_board[x][y] > max_result[0]) {
-				max_result[0] = can_put_board[x][y];
-				max_result[1] = x; 
-				max_result[2] = y;
-			} 
+			*max_result = can_put_board[x][y] > *max_result ? can_put_board[x][y] : *max_result;
 		}
 	}
 }
 
-// 課題8　勝手に石置いていく関数
-void algo_4619072(int *x, int *y, int max_result[]) {
-	*x = max_result[1];
-	*y = max_result[2];
-	usleep(3 * 100000);
-	printf("%d %d に石が置かれました。\n", *x, *y);
+// 課題8　勝手に石置いていく関数 　評価値：(取れる石の数) - (次に取られ得る石の最大数) 評価値を最大化
+void algo_4619072(int *max_x, int *max_y, int color, int board_size, int can_put_board[][board_size], struct othello *o) {
+	int x, y;
+	int i, j;
+	int tmp_board[board_size][board_size];
+	int next_can_put_board[board_size][board_size];
+	int tmp_get;
+	int next_loss = 0;
+	int result = -100;
+	int tmp_score[2] = {o->score[0], o->score[1]};
+
+	for (x=0; x<board_size; x++) {
+		for (y=0; y<board_size; y++) {
+			tmp_board[x][y] = o->board[x][y];
+		}
+	}
+
+	for (x=0; x<board_size; x++) {
+		for (y=0; y<board_size; y++) {
+			if (can_put_board[x][y] == 0){ continue; }
+			tmp_get = can_put_board[x][y];
+			
+			for (i=0; i<board_size; i++) {
+				for (j=0; j<board_size; j++) {
+					next_can_put_board[i][j] = 0;
+				}
+			}
+
+			o->board[x][y] = color;
+			reverse(x, y, color, o);
+			can_put(board_size, next_can_put_board, &next_loss, abs(color-1), o);
+			if ((tmp_get - next_loss > result) || (tmp_get - next_loss == result && rand() % 2 == 1)) {
+				result = tmp_get - next_loss;
+				*max_x = x;
+				*max_y = y;
+			}
+			for (i=0; i<board_size; i++) {
+				for (j=0; j<board_size; j++) {
+					o->board[i][j] = tmp_board[i][j];
+				}
+			}
+		}
+	}
+	o->score[0] = tmp_score[0];
+	o->score[1] = tmp_score[1];
+	
+	usleep(1 * 100000);
+	printf("%d %d に石が置かれました。\n", *max_x, *max_y);
 }

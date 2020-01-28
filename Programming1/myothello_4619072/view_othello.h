@@ -53,8 +53,8 @@ void view_out( struct view *v );
 void view_draw( struct view *v, void *a );
 void view_loop( struct view *v, struct othello *o );
 
-void can_put(int board_size, int can_put_board[][board_size], int max_result[], int color, struct othello *o);
+void can_put(int board_size, int can_put_board[][board_size], int *max_result, int color, struct othello *o);
 void reverse(int x, int y, int color, struct othello *o);
-void algo_4619072(int *x, int *y, int max_result[]);
+void algo_4619072(int *max_x, int *max_y, int color, int board_size, int can_put_board[][board_size], struct othello *o);
 
 #endif
