@@ -373,6 +373,6 @@ void algo_4619072(int *max_x, int *max_y, int color, int board_size, int can_put
 	o->score[0] = tmp_score[0];
 	o->score[1] = tmp_score[1];
 	
-	usleep(1 * 100000);
+	usleep(1 * 10000);
 	printf("%d %d に石が置かれました。\n", *max_x, *max_y);
 }
